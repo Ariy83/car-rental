@@ -1,10 +1,11 @@
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
+import CarList from '../components/carList/carList';
 
 const Catalog = () => {
   return (
     <>
       <Header />
-      Catalog
+      <CarList />
     </>
   );
 };
