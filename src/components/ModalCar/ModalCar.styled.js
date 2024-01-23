@@ -127,6 +127,24 @@ export const StyledRentalRow = styled.div`
   align-items: flex-start;
   gap: 8px;
 `;
-export const StyledModalButton = styled.button`
+
+export const StyledModalLink = styled.a`
+  display: inline-block;
   padding: 12px 50px;
+  text-decoration: none;
+  background-color: var(--blue-main);
+  color: var(--white);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.43;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 250ms ease-in-out;
+  :hover,
+  :active,
+  :focus {
+    background-color: var(--blue-hover);
+  }
 `;

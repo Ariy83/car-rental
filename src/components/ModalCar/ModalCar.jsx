@@ -5,9 +5,9 @@ import {
   StyledImgModal,
   StyledInfoBottom,
   StyledInfoWrap,
-  StyledModalButton,
   StyledModalCarBackdrop,
   StyledModalCloseBtn,
+  StyledModalLink,
   StyledModalWrap,
   StyledName,
   StyledRentalConditions,
@@ -97,7 +97,7 @@ const ModalCar = () => {
                   {car.rentalConditions.split('\n')[2]}
                 </StyledRentalConditions>
                 <StyledRentalConditions>
-                  Mileage: {car.mileage}
+                  Mileage: {car.mileage.toLocaleString('en-US')}
                 </StyledRentalConditions>
                 <StyledRentalConditions>
                   Price: {car.rentalPrice}
@@ -105,7 +105,7 @@ const ModalCar = () => {
               </StyledRentalRow>
             </StyledRentalWrap>
           </StyledInfoBottom>
-          <StyledModalButton>Rental car</StyledModalButton>
+          <StyledModalLink>Rental car</StyledModalLink>
         </StyledModalWrap>
       </StyledModalCarBackdrop>
     )

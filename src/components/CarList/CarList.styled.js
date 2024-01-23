@@ -12,6 +12,7 @@ export const StyledList = styled.ul`
   flex-wrap: wrap;
   column-gap: 29px;
   row-gap: 50px;
+  margin-top: 50px;
 `;
 export const StyledLoadMore = styled.div`
   cursor: pointer;

@@ -18,6 +18,15 @@ export const StyledImgWrap = styled.div`
   background-color: #f3f3f2;
   margin-bottom: 6px;
 `;
+
+export const StyledHeart = styled.div`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 9;
+  cursor: pointer;
+`;
+
 export const StyledNamePrice = styled.div`
   width: 100%;
   display: flex;

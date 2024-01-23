@@ -10,6 +10,31 @@ export const carSlice = createSlice({
       car: {},
       isOpen: false,
     },
+    favCars: [],
+    carBrands: [
+      'Buick',
+      'Volvo',
+      'HUMMER',
+      'Subaru',
+      'Mitsubishi',
+      'Nissan',
+      'Lincoln',
+      'GMC',
+      'Hyundai',
+      'MINI',
+      'Bentley',
+      'Mercedes-Benz',
+      'Aston Martin',
+      'Pontiac',
+      'Lamborghini',
+      'Audi',
+      'BMW',
+      'Chevrolet',
+      'Chrysler',
+      'Kia',
+      'Land',
+    ],
+    filteredCars: [],
     isLoading: false,
     isError: null,
   },
@@ -22,6 +47,15 @@ export const carSlice = createSlice({
     },
     openCarModal: (state, { payload }) => {
       state.modal.car = payload;
+    },
+    addFavCars: (state, { payload }) => {
+      state.favCars.push(payload);
+    },
+    delFavCars: (state, { payload }) => {
+      state.favCars = state.favCars.filter(car => car.id !== payload);
+    },
+    addFilteredCars: (state, { payload }) => {
+      state.filteredCars = payload;
     },
   },
   extraReducers: builder => {
@@ -41,4 +75,12 @@ export const carSlice = createSlice({
 });
 
 export const carReducer = carSlice.reducer;
-export const { loadMore, toggleModal, openCarModal } = carSlice.actions;
+export const {
+  loadMore,
+  toggleModal,
+  openCarModal,
+  toggleFavorite,
+  addFavCars,
+  delFavCars,
+  addFilteredCars,
+} = carSlice.actions;

@@ -2,7 +2,12 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllCarsThunk } from '../../redux/operations';
 import { loadMore } from '../../redux/carSlice';
-import { selectCars, selectIsLoading, selectPage } from '../../redux/selectors';
+import {
+  selectCars,
+  selectFilteredCars,
+  selectIsLoading,
+  selectPage,
+} from '../../redux/selectors';
 import CarItem from '../CarItem/CarItem';
 import { StyledFlex, StyledList, StyledLoadMore } from './carList.styled';
 
@@ -10,6 +15,7 @@ const CarList = () => {
   let page = useSelector(selectPage);
   const cars = useSelector(selectCars);
   const isLoading = useSelector(selectIsLoading);
+  const filteredCars = useSelector(selectFilteredCars);
 
   const dispatch = useDispatch();
 
@@ -25,14 +31,12 @@ const CarList = () => {
     }
   }, [dispatch, page]);
 
-  console.log(cars);
-
   return (
     <StyledFlex>
       <StyledList>
-        {cars?.map(car => (
-          <CarItem key={car.id} car={car} />
-        ))}
+        {filteredCars.length === 0
+          ? cars?.map(car => <CarItem key={car.id} car={car} />)
+          : filteredCars?.map(car => <CarItem key={car.id} car={car} />)}
       </StyledList>
       {page < 3 && (
         <StyledLoadMore onClick={() => dispatch(loadMore())}>
