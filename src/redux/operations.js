@@ -9,7 +9,6 @@ export const fetchAllCarsThunk = createAsyncThunk(
   async (page, thunkApi) => {
     try {
       const { data } = await axios.get('cars', { params: { page, limit: 12 } });
-      console.log(data);
       return data;
     } catch (error) {
       toast.error(error.message);

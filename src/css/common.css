@@ -25,10 +25,6 @@ a {
   text-decoration: none;
 }
 
-button {
-  cursor: pointer;
-}
-
 img,
 svg {
   display: block;
@@ -43,30 +39,12 @@ html {
   flex-direction: column;
   font-family: var(--font-main);
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0;
   background-color: var(--white);
   color: var(--txt-black);
   margin: 0;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.is-hidden {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
 }
 
 button {
@@ -81,10 +59,12 @@ button {
   line-height: 1.43;
   border: none;
   border-radius: 12px;
+  cursor: pointer;
   transition: background-color 250ms ease-in-out;
 }
 
 button:hover,
+button:active,
 button:focus {
   background-color: var(--blue-hover);
 }

@@ -6,16 +6,22 @@ export const carSlice = createSlice({
   initialState: {
     cars: [],
     page: 1,
-    modalIsOpen: false,
+    modal: {
+      car: {},
+      isOpen: false,
+    },
     isLoading: false,
     isError: null,
   },
   reducers: {
-    toggleModal: (state, { payload }) => {
-      state.modalIsOpen = payload;
-    },
     loadMore: state => {
       state.page += 1;
+    },
+    toggleModal: (state, { payload }) => {
+      state.modal.isOpen = payload;
+    },
+    openCarModal: (state, { payload }) => {
+      state.modal.car = payload;
     },
   },
   extraReducers: builder => {
@@ -24,7 +30,7 @@ export const carSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchAllCarsThunk.fulfilled, (state, { payload }) => {
-        state.cars = payload;
+        state.cars.push(...payload);
         state.isLoading = false;
       })
       .addCase(fetchAllCarsThunk.rejected, (state, { payload }) => {
@@ -35,4 +41,4 @@ export const carSlice = createSlice({
 });
 
 export const carReducer = carSlice.reducer;
-export const { toggleModal } = carSlice.actions;
+export const { loadMore, toggleModal, openCarModal } = carSlice.actions;

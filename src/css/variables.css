@@ -2,7 +2,7 @@
   --white: #ffffff;
   --txt-black: #121417;
   --txt-grey: #8a8a89;
-  --txt-grey-descr: #8a8a89;
+  --txt-grey-descr: rgba(18, 20, 23, 0.5);
   --txt-select: rgba(18, 20, 23, 0.2);
   --blue-main: #3470ff;
   --blue-hover: #0b44cd;

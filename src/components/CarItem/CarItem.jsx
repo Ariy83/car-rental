@@ -1,27 +1,52 @@
+import { useDispatch, useSelector } from 'react-redux';
 import Heart from '../Heart/Heart';
-import { StyledLi } from './CarItem.styled';
+import {
+  StyledButton,
+  StyledImgWrap,
+  StyledLi,
+  StyledNamePrice,
+  StyledTags,
+} from './CarItem.styled';
+import { openCarModal, toggleModal } from '../../redux/carSlice';
+import { selectIsModalOpen } from '../../redux/selectors';
+import { getRandomInt } from '../../utils/functions';
 
 /* eslint-disable react/prop-types */
 const CarItem = ({ car }) => {
-  //   const cars = useSelector(selectCars);
+  const isModalOpen = useSelector(selectIsModalOpen);
 
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
+  const learnMore = car => {
+    dispatch(toggleModal(!isModalOpen));
+    dispatch(openCarModal(car));
+    console.log(car);
+  };
 
   return (
     <StyledLi>
-      <img src={car.img} alt={car.description} />
-      <div>
+      <StyledImgWrap
+        style={{
+          backgroundImage: `url(${car.img})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+      <StyledNamePrice>
         <p>
-          {car.make} <span>{car.model}</span>, {car.year}
+          {car.make} <span>{car.model.split('-').slice(0, 1).join(' ')}</span>,{' '}
+          {car.year}
         </p>
         <p>{car.rentalPrice}</p>
-      </div>
-      <p>
-        {car.address.split(',').slice(1).join(' |')} | {car.rentalCompany} |
+      </StyledNamePrice>
+      <StyledTags>
+        {car.address.split(',').slice(1).join(' | ')} | {car.rentalCompany} |
         Premium | {car.type.charAt(0) + car.type.substring(1).toLowerCase()} |
-        {car.model} | {car.id} | {car.functionalities[0]}
-      </p>
-      <button>Learn more</button>
+        {` ${car.model}`} | {car.id} |{' '}
+        {car.functionalities[getRandomInt(0, 3)].split(' ').slice(-2).join(' ')}
+      </StyledTags>
+      <StyledButton onClick={() => learnMore(car)}>Learn more</StyledButton>
       <Heart />
     </StyledLi>
   );

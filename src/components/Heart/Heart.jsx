@@ -1,10 +1,13 @@
-import { StyledSvg } from '../CarItem/CarItem.styled';
+import { FaRegHeart } from 'react-icons/fa';
+// import { FaHeart } from 'react-icons/fa';
+import { StyledHeart } from './Heart.styled';
 
 const Heart = () => {
   return (
-    <StyledSvg width="18" height="18" aria-label="Add to favorites">
-      <use href="../../assets/icons.svg#icon-heart"></use>
-    </StyledSvg>
+    <StyledHeart>
+      <FaRegHeart color="white" />
+      {/* <FaHeart color="#3470ff" /> */}
+    </StyledHeart>
   );
 };
 
