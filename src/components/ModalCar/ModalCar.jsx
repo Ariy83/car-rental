@@ -105,7 +105,7 @@ const ModalCar = () => {
               </StyledRentalRow>
             </StyledRentalWrap>
           </StyledInfoBottom>
-          <StyledModalLink>Rental car</StyledModalLink>
+          <StyledModalLink href="tel:+380730000000">Rental car</StyledModalLink>
         </StyledModalWrap>
       </StyledModalCarBackdrop>
     )
